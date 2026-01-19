@@ -33,3 +33,10 @@ function love.draw()
   Globals.GameWorld:draw()
   Globals.Player:draw()
 end
+
+
+function love.mousepressed(x, y, button)
+  if button == 1 then
+    Globals.Player:flap()
+  end
+end
