@@ -3,6 +3,8 @@ Globals.GameWorld = nil
 Globals.Player = nil
 Globals.Collisions = require("src/utils/collisions")
 
+local player = nil
+
 function love.load()
   Globals.Screen = {
       x = 0,
@@ -15,23 +17,23 @@ function love.load()
   Globals.GameWorld:load()
   
   Globals.Player = require("src/objs/player")
-  Globals.Player:load()
+  player = Globals.Player.new()
 end
 
 
 function love.update(dt)
   Globals.GameWorld:update(dt)
-  Globals.Player:update(dt)
+  player:update(dt)
   
-  if Globals.Collisions:AABB(Globals.Player, Globals.GameWorld.Ground) then
-    Globals.Player.y = Globals.GameWorld.Ground.y - Globals.Player.height
+  if Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
+    player.y = Globals.GameWorld.Ground.y - player.height
   end
 end
 
 
 function love.draw()
   Globals.GameWorld:draw()
-  Globals.Player:draw()
+  player:draw()
 end
 
 

@@ -1,6 +1,16 @@
 local Player = {}
 
-function Player:load()
+function Player.new()
+  local instance = {}
+  setmetatable(instance, { __index = Player })
+  
+  instance:reset()
+  
+  return instance
+end
+
+
+function Player:reset()
   self.x = 75
   self.y = Globals.Screen.height / 2
   self.width = 20
