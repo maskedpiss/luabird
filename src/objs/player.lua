@@ -17,7 +17,9 @@ end
 
 
 function Player:flap()
-  self.yVel = -250
+  if self.y > Globals.Screen.y then
+    self.yVel = -250
+  end
 end
 
 
