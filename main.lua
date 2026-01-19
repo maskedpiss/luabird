@@ -1,6 +1,7 @@
 Globals = {}
 Globals.GameWorld = nil
 Globals.Player = nil
+Globals.Collisions = require("src/utils/collisions")
 
 function love.load()
   Globals.Screen = {
@@ -21,6 +22,10 @@ end
 function love.update(dt)
   Globals.GameWorld:update(dt)
   Globals.Player:update(dt)
+  
+  if Globals.Collisions:AABB(Globals.Player, Globals.GameWorld.Ground) then
+    Globals.Player.y = Globals.GameWorld.Ground.y - Globals.Player.height
+  end
 end
 
 
