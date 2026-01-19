@@ -27,6 +27,7 @@ function love.update(dt)
   
   if Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
     player.y = Globals.GameWorld.Ground.y - player.height
+    player:reset()
   end
 end
 
