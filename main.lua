@@ -10,7 +10,8 @@ Globals.Button = require("src/objs/button")
 Globals.State = {
     current = nil,
     states = {
-        menu = require("src/states/menu")
+        menu = require("src/states/menu"),
+        play = require("src/states/play")
     }
 }
 
