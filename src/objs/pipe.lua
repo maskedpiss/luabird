@@ -1,6 +1,8 @@
 local Pipe = {}
 
 function Pipe:load()
+  self.speed = 200
+  
   self.TopPipe = {
       x = 200,
       y = Globals.Screen.y,
@@ -25,7 +27,8 @@ end
 
 
 function Pipe:update(dt)
-  
+  self.TopPipe.x = self.TopPipe.x - self.speed * dt
+  self.BottomPipe.x = self.TopPipe.x
 end
 
 
