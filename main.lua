@@ -5,6 +5,7 @@ Globals.Pipe = nil
 Globals.playerScore = 0
 Globals.hasScored = false
 Globals.Collisions = require("src/utils/collisions")
+Globals.Button = require("src/objs/button")
 
 Globals.State = {
     current = nil,
