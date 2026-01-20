@@ -17,12 +17,25 @@ function Menu.onEnter()
   local exitBtnY = playBtnY + 75
   
   playButton = Globals.Button.new("Play", playBtnX, playBtnY)
-  exitButton = Globals.Button.new("Exit", exitBtnX, exitBtnY)
+  exitButton = Globals.Button.new("Exit", exitBtnX, exitBtnY, function()
+      love.event.quit()
+    end)
 end
 
 
 function Menu.update(dt)
   
+end
+
+
+function Menu.mousepressed(x, y, button)
+  if playButton:mousepressed(x, y, button) then
+    return
+  end
+  
+  if exitButton:mousepressed(x, y, button) then
+    return
+  end
 end
 
 

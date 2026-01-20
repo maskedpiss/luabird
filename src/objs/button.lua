@@ -2,13 +2,14 @@ local Button = {}
 
 local buttonFont = love.graphics.newFont(32)
 
-function Button.new(text, x, y)
+function Button.new(text, x, y, callback)
   local instance = {}
   setmetatable(instance, { __index = Button })
   
   instance.text = text
   instance.x = x
   instance.y = y
+  instance.callback = callback or function() end
   instance.width = 100
   instance.height = 50
   
@@ -18,6 +19,19 @@ end
 
 function Button:update(dt)
   
+end
+
+
+function Button:isHovering(x, y)
+  return x > self.x and x < self.x + self.width and
+         y > self.y and y < self.y + self.height
+end
+
+
+function Button:mousepressed(x, y, button)
+  if self:isHovering(x, y) and button == 1 then
+    self:callback()
+  end
 end
 
 
