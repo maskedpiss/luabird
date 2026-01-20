@@ -41,6 +41,10 @@ function love.update(dt)
     player:reset()
     pipe:reset()
   end
+  
+  if pipe.TopPipe.x + pipe.TopPipe.width < player.x then
+    Globals.playerScore = Globals.playerScore + 1
+  end
 end
 
 
