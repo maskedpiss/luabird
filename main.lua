@@ -46,6 +46,6 @@ end
 
 function love.mousepressed(x, y, button)
   if button == 1 then
-    Globals.Player:flap()
+    player:flap()
   end
 end
