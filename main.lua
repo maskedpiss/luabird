@@ -53,7 +53,7 @@ end
 
 
 function love.mousepressed(x, y, button)
-  if Globals.State.current and Globals.State.current.mousepressed(x, y, button) then
+  if Globals.State.current and Globals.State.current.mousepressed then
     Globals.State.current.mousepressed(x, y, button)
   end
 end
