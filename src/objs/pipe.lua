@@ -1,6 +1,16 @@
 local Pipe = {}
 
-function Pipe:load()
+function Pipe.new()
+  local instance = {}
+  setmetatable(instance, { __index = Pipe })
+  
+  instance:reset()
+  
+  return instance
+end
+
+
+function Pipe:reset()
   self.speed = 200
   
   self.TopPipe = {
@@ -31,7 +41,7 @@ function Pipe:update(dt)
   self.BottomPipe.x = self.TopPipe.x
   
   if self.TopPipe.x + self.TopPipe.width < Globals.Screen.x then
-    self.TopPipe.x = Globals.Screen.width
+    self:reset()
   end
 end
 
