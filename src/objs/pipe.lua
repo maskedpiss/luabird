@@ -4,7 +4,7 @@ function Pipe:load()
   self.speed = 200
   
   self.TopPipe = {
-      x = 200,
+      x = Globals.Screen.width,
       y = Globals.Screen.y,
       width = 75,
       height = math.random(50, 250)
@@ -29,6 +29,10 @@ end
 function Pipe:update(dt)
   self.TopPipe.x = self.TopPipe.x - self.speed * dt
   self.BottomPipe.x = self.TopPipe.x
+  
+  if self.TopPipe.x + self.TopPipe.width < Globals.Screen.x then
+    self.TopPipe.x = Globals.Screen.width
+  end
 end
 
 
