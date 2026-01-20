@@ -1,6 +1,7 @@
 Globals = {}
 Globals.GameWorld = nil
 Globals.Player = nil
+Globals.Pipe = nil
 Globals.Collisions = require("src/utils/collisions")
 
 local player = nil
@@ -18,11 +19,15 @@ function love.load()
   
   Globals.Player = require("src/objs/player")
   player = Globals.Player.new()
+  
+  Globals.Pipe = require("src/objs/pipe")
+  Globals.Pipe:load()
 end
 
 
 function love.update(dt)
   Globals.GameWorld:update(dt)
+  Globals.Pipe:update(dt)
   player:update(dt)
   
   if Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
@@ -34,6 +39,7 @@ end
 
 function love.draw()
   Globals.GameWorld:draw()
+  Globals.Pipe:draw()
   player:draw()
 end
 
