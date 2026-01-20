@@ -2,6 +2,7 @@ Globals = {}
 Globals.GameWorld = nil
 Globals.Player = nil
 Globals.Pipe = nil
+Globals.playerScore = 0
 Globals.Collisions = require("src/utils/collisions")
 
 local player = nil
