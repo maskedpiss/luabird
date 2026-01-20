@@ -55,7 +55,9 @@ end
 
 
 function Menu.onExit()
-  
+  playButton = nil
+  exitButton = nil
+  Menu.Title = {}
 end
 
 return Menu
