@@ -12,6 +12,7 @@ end
 
 function Pipe:reset()
   self.speed = 200
+  Globals.hasScored = false
   
   self.TopPipe = {
       x = Globals.Screen.width,

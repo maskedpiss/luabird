@@ -3,6 +3,7 @@ Globals.GameWorld = nil
 Globals.Player = nil
 Globals.Pipe = nil
 Globals.playerScore = 0
+Globals.hasScored = false
 Globals.Collisions = require("src/utils/collisions")
 
 local player = nil
@@ -42,8 +43,9 @@ function love.update(dt)
     pipe:reset()
   end
   
-  if pipe.TopPipe.x + pipe.TopPipe.width < player.x then
+  if pipe.TopPipe.x + pipe.TopPipe.width < player.x and not Globals.hasScored then
     Globals.playerScore = Globals.playerScore + 1
+    Globals.hasScored = true
   end
 end
 
