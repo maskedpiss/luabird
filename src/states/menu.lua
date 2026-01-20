@@ -1,6 +1,7 @@
 local Menu = {}
 
 local playButton = nil
+local exitButton = nil
 
 function Menu.onEnter()
   Menu.Title = {
@@ -10,7 +11,13 @@ function Menu.onEnter()
       text = "Lua Bird"
   }
   
-  playButton = Globals.Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2)
+  local playBtnX = Globals.Screen.width / 2
+  local playBtnY = Globals.Screen.height / 2
+  local exitBtnX = playBtnX
+  local exitBtnY = playBtnY + 75
+  
+  playButton = Globals.Button.new("Play", playBtnX, playBtnY)
+  exitButton = Globals.Button.new("Exit", exitBtnX, exitBtnY)
 end
 
 
@@ -27,6 +34,7 @@ function Menu.draw()
   love.graphics.printf(Menu.Title.text, Menu.Title.x, Menu.Title.y, Globals.Screen.width, "center")
   
   playButton:draw()
+  exitButton:draw()
 end
 
 
