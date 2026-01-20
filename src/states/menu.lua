@@ -16,13 +16,14 @@ function Menu.onEnter()
   local exitBtnX = playBtnX
   local exitBtnY = playBtnY + 75
   
-  playButton = Globals.Button.new("Play", playBtnX, playBtnY, function()
-      Globals.State:changeState("play")
-    end)
+  Globals.Button = require("src/objs/button")
+  playButton = Globals.Button.new("Play", Globals.Screen.width / 2, Globals.Screen.height / 2, function()
+      GameState:changeState("play")
+  end)
   
   exitButton = Globals.Button.new("Exit", exitBtnX, exitBtnY, function()
       love.event.quit()
-    end)
+  end)
 end
 
 
@@ -58,6 +59,7 @@ function Menu.onExit()
   playButton = nil
   exitButton = nil
   Menu.Title = {}
+  Globals.Button = nil
 end
 
 return Menu

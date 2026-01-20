@@ -29,9 +29,11 @@ end
 
 
 function Button:mousepressed(x, y, button)
-  if self:isHovering(x, y) and button == 1 then
-    self:callback()
+  if button == 1 and self:isHovering(x, y) then
+    self.callback()
+    return true
   end
+  return false
 end
 
 

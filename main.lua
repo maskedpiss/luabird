@@ -5,9 +5,9 @@ Globals.Pipe = nil
 Globals.playerScore = 0
 Globals.hasScored = false
 Globals.Collisions = require("src/utils/collisions")
-Globals.Button = require("src/objs/button")
+Globals.Button = nil
 
-Globals.State = {
+GameState = {
     current = nil,
     states = {
         menu = require("src/states/menu"),
@@ -15,15 +15,15 @@ Globals.State = {
     }
 }
 
-function Globals.State:changeState(newState)
-  if Globals.State.current and Globals.State.current.onExit then
-    Globals.State.current.onExit()
+function GameState:changeState(newState)
+  if GameState.current and GameState.current.onExit then
+    GameState.current.onExit()
   end
   
-  Globals.State.current = Globals.State.states[newState]
+  GameState.current = GameState.states[newState]
   
-  if Globals.State.current and Globals.State.current.onEnter then
-    Globals.State.current.onEnter()
+  if GameState.current and GameState.current.onEnter then
+    GameState.current.onEnter()
   end
 end
 
@@ -36,26 +36,26 @@ function love.load()
       height = love.graphics.getHeight()
   }
   
-  Globals.State:changeState("menu")
+  GameState:changeState("menu")
 end
 
 
 function love.update(dt)
-  if Globals.State.current and Globals.State.current.update then
-    Globals.State.current.update(dt)
+  if GameState.current and GameState.current.update then
+    GameState.current.update(dt)
   end
 end
 
 
 function love.draw()
-  if Globals.State.current and Globals.State.current.draw then
-    Globals.State.current.draw()
+  if GameState.current and GameState.current.draw then
+    GameState.current.draw()
   end
 end
 
 
 function love.mousepressed(x, y, button)
-  if Globals.State.current and Globals.State.current.mousepressed then
-    Globals.State.current.mousepressed(x, y, button)
+  if GameState.current and GameState.current.mousepressed then
+    GameState.current.mousepressed(x, y, button)
   end
 end
