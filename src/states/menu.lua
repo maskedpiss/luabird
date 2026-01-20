@@ -16,7 +16,10 @@ function Menu.onEnter()
   local exitBtnX = playBtnX
   local exitBtnY = playBtnY + 75
   
-  playButton = Globals.Button.new("Play", playBtnX, playBtnY)
+  playButton = Globals.Button.new("Play", playBtnX, playBtnY, function()
+      Globals.State:changeState("play")
+    end)
+  
   exitButton = Globals.Button.new("Exit", exitBtnX, exitBtnY, function()
       love.event.quit()
     end)
