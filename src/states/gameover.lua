@@ -63,7 +63,12 @@ end
 
 
 function GameOver.onExit()
-  
+  GameOver.Message = {}
+  GameOver.Score = {}
+  Globals.Button = nil
+  retryButton = nil
+  exitButton = nil
+  Globals.playerScore = 0
 end
 
 return GameOver
