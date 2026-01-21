@@ -11,7 +11,7 @@ function Menu.onEnter()
       font = Globals.Graphics.Fonts.TitleFont,
       x = Globals.Screen.x,
       y = 50,
-      text = "Lua Bird"
+      text = "lua bird"
   }
   
   Menu.HiScore = {
@@ -26,11 +26,11 @@ function Menu.onEnter()
   local exitBtnY = playBtnY + 75
   
   Globals.Button = require("src/objs/button")
-  playButton = Globals.Button.new("Play", playBtnX - Globals.Button.offset, playBtnY, function()
+  playButton = Globals.Button.new("play", playBtnX - Globals.Button.offset, playBtnY, function()
       GameState:changeState("play")
   end)
   
-  exitButton = Globals.Button.new("Exit", exitBtnX - Globals.Button.offset, exitBtnY, function()
+  exitButton = Globals.Button.new("exit", exitBtnX - Globals.Button.offset, exitBtnY, function()
       love.event.quit()
   end)
 end

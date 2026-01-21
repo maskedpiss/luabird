@@ -12,9 +12,9 @@ end
 
 function Graphics:loadFonts()
   self.Fonts = {
-      TitleFont = love.graphics.newFont(64),
-      HiScoreFont = love.graphics.newFont(48),
-      ButtonFont = love.graphics.newFont(32)
+      TitleFont = love.graphics.newFont("res/fonts/BLACKOUT.TTF", 64),
+      HiScoreFont = love.graphics.newFont("res/fonts/BLACKOUT.TTF", 48),
+      ButtonFont = love.graphics.newFont("res/fonts/BLACKOUT.TTF", 32)
   }
 end
 
