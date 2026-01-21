@@ -6,6 +6,7 @@ Globals.playerScore = 0
 Globals.hiScore = 0
 Globals.hasScored = false
 Globals.Collisions = require("src/utils/collisions")
+Globals.Graphics = require("src/utils/graphics")
 Globals.Button = nil
 
 GameState = {
@@ -37,6 +38,8 @@ function love.load()
       width = love.graphics.getWidth(),
       height = love.graphics.getHeight()
   }
+  
+  Globals.Graphics:loadColors()
   
   GameState:changeState("menu")
 end

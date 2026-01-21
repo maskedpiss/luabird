@@ -48,7 +48,7 @@ end
 
 
 function Pipe:draw()
-  love.graphics.setColor(0, 1, 0)
+  love.graphics.setColor(Globals.Graphics.green)
   love.graphics.rectangle("fill", self.TopPipe.x, self.TopPipe.y, self.TopPipe.width, self.TopPipe.height)
   love.graphics.rectangle("fill", self.BottomPipe.x, self.BottomPipe.y, self.BottomPipe.width, self.BottomPipe.height)
 end

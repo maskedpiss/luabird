@@ -60,7 +60,7 @@ end
 
 
 function GameOver.draw()
-  love.graphics.setColor(0, 0, 0)
+  love.graphics.setColor(Globals.Graphics.black)
   love.graphics.setFont(GameOver.Message.font)
   love.graphics.printf(GameOver.Message.text, GameOver.Message.x, GameOver.Message.y, Globals.Screen.width, "center")
   
