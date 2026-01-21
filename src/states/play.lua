@@ -23,6 +23,11 @@ function Play.update(dt)
   if Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
     player.y = Globals.GameWorld.Ground.y - player.height
   end
+  
+  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) then
+    player:reset()
+    pipe:reset()
+  end
 end
 
 
