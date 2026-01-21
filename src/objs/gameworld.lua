@@ -10,7 +10,7 @@ function GameWorld:load()
   }
   
   self.ScoreBoard = {
-      font = love.graphics.newFont(64),
+      font = Globals.Graphics.Fonts.TitleFont,
       x = 0,
       y = 50
   }

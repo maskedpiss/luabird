@@ -7,14 +7,14 @@ function GameOver.onEnter()
   GameOver.checkScore(Globals.playerScore)
   
   GameOver.Message = {
-      font = love.graphics.newFont(48),
+      font = Globals.Graphics.Fonts.HiScoreFont,
       x = Globals.Screen.x,
       y = 50,
       text = "Game Over!"
   }
   
   GameOver.Score = {
-      font = love.graphics.newFont(64),
+      font = Globals.Graphics.Fonts.TitleFont,
       x = Globals.Screen.x,
       y = 125
   }

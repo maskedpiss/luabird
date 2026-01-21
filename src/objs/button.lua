@@ -2,7 +2,7 @@ local Button = {}
 
 Button.offset = 50
 
-local buttonFont = love.graphics.newFont(32)
+local buttonFont = Globals.Graphics.Fonts.ButtonFont
 
 function Button.new(text, x, y, callback)
   local instance = {}

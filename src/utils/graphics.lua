@@ -9,4 +9,13 @@ function Graphics:loadColors()
   self.white = { 1, 1, 1 }
 end
 
+
+function Graphics:loadFonts()
+  self.Fonts = {
+      TitleFont = love.graphics.newFont(64),
+      HiScoreFont = love.graphics.newFont(48),
+      ButtonFont = love.graphics.newFont(32)
+  }
+end
+
 return Graphics
