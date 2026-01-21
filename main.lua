@@ -12,7 +12,7 @@ GameState = {
     states = {
         menu = require("src/states/menu"),
         play = require("src/states/play"),
-        gameOver = require("src/state/gameover")
+        gameOver = require("src/states/gameover")
     }
 }
 
