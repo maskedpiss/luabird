@@ -1,6 +1,7 @@
 local Play = {}
 
 local player = nil
+local pipe = nil
 
 function Play.onEnter()
   Globals.GameWorld = require("src/objs/gameworld")
@@ -8,12 +9,16 @@ function Play.onEnter()
   
   Globals.Player = require("src/objs/player")
   player = Globals.Player.new()
+  
+  Globals.Pipe = require("src/objs/pipe")
+  pipe = Globals.Pipe.new()
 end
 
 
 function Play.update(dt)
   Globals.GameWorld:update(dt)
   player:update(dt)
+  pipe:update(dt)
   
   if Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
     player.y = Globals.GameWorld.Ground.y - player.height
@@ -29,6 +34,7 @@ end
 
 
 function Play.draw()
+  pipe:draw()
   Globals.GameWorld:draw()
   player:draw()
 end
