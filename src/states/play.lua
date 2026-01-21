@@ -20,13 +20,13 @@ function Play.update(dt)
   player:update(dt)
   pipe:update(dt)
   
-  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) or Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
-    GameState:changeState("gameOver")
-  end
-  
   if player.x > pipe.TopPipe.x + pipe.TopPipe.width and Globals.hasScored == false then
     Globals.playerScore = Globals.playerScore + 1
     Globals.hasScored = true
+  end
+  
+  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) or Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
+    GameState:changeState("gameOver")
   end
 end
 
@@ -46,7 +46,11 @@ end
 
 
 function Play.onExit()
-  
+  player = nil
+  pipe = nil
+  Globals.GameWorld = nil
+  Globals.Player = nil
+  Globals.Pipe = nil
 end
 
 return Play
