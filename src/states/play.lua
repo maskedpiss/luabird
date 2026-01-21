@@ -28,6 +28,11 @@ function Play.update(dt)
     player:reset()
     pipe:reset()
   end
+  
+  if player.x > pipe.TopPipe.x + pipe.TopPipe.width and Globals.hasScored == false then
+    Globals.playerScore = Globals.playerScore + 1
+    Globals.hasScored = true
+  end
 end
 
 
