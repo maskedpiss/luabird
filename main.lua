@@ -41,6 +41,7 @@ function love.load()
   
   Globals.Graphics:loadColors()
   Globals.Graphics:loadFonts()
+  Globals.Graphics:loadSprites()
   
   GameState:changeState("menu")
 end

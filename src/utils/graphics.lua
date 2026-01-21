@@ -18,4 +18,9 @@ function Graphics:loadFonts()
   }
 end
 
+
+function Graphics:loadSprites()
+  
+end
+
 return Graphics
