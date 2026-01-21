@@ -38,6 +38,17 @@ function GameOver.update(dt)
 end
 
 
+function GameOver.mousepressed(x, y, button)
+  if retryButton:mousepressed(x, y, button) then
+    return
+  end
+  
+  if exitButton:mousepressed(x, y, button) then
+    return
+  end
+end
+
+
 function GameOver.draw()
   love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(GameOver.Message.font)
