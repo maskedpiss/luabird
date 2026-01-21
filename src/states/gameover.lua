@@ -4,6 +4,8 @@ local retryButton = nil
 local exitButton = nil
 
 function GameOver.onEnter()
+  GameOver.checkScore(Globals.playerScore)
+  
   GameOver.Message = {
       font = love.graphics.newFont(48),
       x = Globals.Screen.x,
@@ -45,6 +47,14 @@ function GameOver.mousepressed(x, y, button)
   
   if exitButton:mousepressed(x, y, button) then
     return
+  end
+end
+
+
+function GameOver.checkScore(newScore)
+  if newScore > Globals.hiScore then
+    Globals.hiScore = newScore
+    saveHighScore()
   end
 end
 

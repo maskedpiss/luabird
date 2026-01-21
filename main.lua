@@ -3,6 +3,7 @@ Globals.GameWorld = nil
 Globals.Player = nil
 Globals.Pipe = nil
 Globals.playerScore = 0
+Globals.hiScore = 0
 Globals.hasScored = false
 Globals.Collisions = require("src/utils/collisions")
 Globals.Button = nil
@@ -59,4 +60,9 @@ function love.mousepressed(x, y, button)
   if GameState.current and GameState.current.mousepressed then
     GameState.current.mousepressed(x, y, button)
   end
+end
+
+
+function saveHighScore()
+  love.filesystem.write("highscores.txt", tostring(Globals.hiScore))
 end
