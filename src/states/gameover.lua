@@ -25,11 +25,11 @@ function GameOver.onEnter()
   local exitBtnY = retryBtnY + 75
   
   Globals.Button = require("src/objs/button")
-  retryButton = Globals.Button.new("Retry", retryBtnX, retryBtnY, function()
+  retryButton = Globals.Button.new("Retry", retryBtnX - Globals.Button.offset, retryBtnY, function()
       GameState:changeState("play")
   end)
 
-  exitButton = Globals.Button.new("Exit", exitBtnX, exitBtnY, function()
+  exitButton = Globals.Button.new("Exit", exitBtnX - Globals.Button.offset, exitBtnY, function()
       love.event.quit()
   end)
 end

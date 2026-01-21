@@ -1,5 +1,7 @@
 local Button = {}
 
+Button.offset = 50
+
 local buttonFont = love.graphics.newFont(32)
 
 function Button.new(text, x, y, callback)
