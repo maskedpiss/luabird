@@ -1,7 +1,12 @@
 local GameOver = {}
 
 function GameOver.onEnter()
-  
+  GameOver.Message = {
+      font = love.graphics.newFont(48),
+      x = Globals.Screen.x,
+      y = 50,
+      text = "Game Over!"
+  }
 end
 
 
@@ -11,7 +16,9 @@ end
 
 
 function GameOver.draw()
-  
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.setFont(GameOver.Message.font)
+  love.graphics.printf(GameOver.Message.text, GameOver.Message.x, GameOver.Message.y, Globals.Screen.width, "center")
 end
 
 
