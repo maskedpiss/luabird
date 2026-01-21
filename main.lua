@@ -11,7 +11,8 @@ GameState = {
     current = nil,
     states = {
         menu = require("src/states/menu"),
-        play = require("src/states/play")
+        play = require("src/states/play"),
+        gameOver = require("src/state/gameover")
     }
 }
 
