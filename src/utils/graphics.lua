@@ -20,7 +20,9 @@ end
 
 
 function Graphics:loadSprites()
-  
+  self.Sprites = {
+      BG = love.graphics.newImage("res/sprites/BG.png")
+  }
 end
 
 return Graphics

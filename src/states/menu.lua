@@ -7,6 +7,12 @@ local savedScore = nil
 function Menu.onEnter()
   Menu.getScore()
   
+  Menu.BackGround = {
+      sprite = Globals.Graphics.Sprites.BG,
+      x = Globals.Screen.x,
+      y = Globals.Screen.y
+  }
+  
   Menu.Title = {
       font = Globals.Graphics.Fonts.TitleFont,
       x = Globals.Screen.x,
@@ -63,7 +69,8 @@ end
 
 
 function Menu.draw()
-  love.graphics.setBackgroundColor(Globals.Graphics.lightBlue)
+  love.graphics.setColor(Globals.Graphics.white)
+  love.graphics.draw(Menu.BackGround.sprite, Menu.BackGround.x, Menu.BackGround.y)
   
   love.graphics.setColor(Globals.Graphics.black)
   love.graphics.setFont(Menu.Title.font)
