@@ -2,13 +2,11 @@ local Button = {}
 
 Button.offset = 50
 
-local buttonFont = Globals.Graphics.Fonts.ButtonFont
-
-function Button.new(text, x, y, callback)
+function Button.new(sprite, x, y, callback)
   local instance = {}
   setmetatable(instance, { __index = Button })
   
-  instance.text = text
+  instance.sprite = sprite
   instance.x = x
   instance.y = y
   instance.callback = callback or function() end
@@ -41,11 +39,7 @@ end
 
 function Button:draw()
   love.graphics.setColor(Globals.Graphics.white)
-  love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
-  
-  love.graphics.setColor(Globals.Graphics.black)
-  love.graphics.setFont(buttonFont)
-  love.graphics.printf(self.text, self.x, self.y, self.width, "center")
+  love.graphics.draw(self.sprite, self.x, self.y)
 end
 
 return Button
