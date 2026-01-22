@@ -26,6 +26,7 @@ end
 function Play.update(dt)
   Globals.GameWorld:update(dt)
   bg:update(dt)
+  ground:update(dt)
   player:update(dt)
   pipe:update(dt)
   
