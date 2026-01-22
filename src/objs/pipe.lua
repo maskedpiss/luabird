@@ -11,21 +11,23 @@ end
 
 
 function Pipe:reset()
+  self.sprite1 = Globals.Graphics.Sprites.pipeShaft
+  self.sprite2 = Globals.Graphics.Sprites.pipeCap
   self.speed = 200
   Globals.hasScored = false
   
-  self.TopPipe = {
+  self.MiddleGap = {
       x = Globals.Screen.width,
-      y = Globals.Screen.y,
-      width = 75,
-      height = math.random(50, 250)
+      y = math.random(50, 250),
+      width = self.sprite1:getWidth(),
+      height = 100
   }
   
-  self.MiddleGap = {
-      x = self.TopPipe.x,
-      y = self.TopPipe.y + self.TopPipe.height,
-      width = self.TopPipe.width,
-      height = 100
+  self.TopPipe = {
+      x = Globals.Screen.width,
+      y = self.MiddleGap.y - self.sprite1:getHeight(),
+      width = 75,
+      height = self.sprite1:getHeight()
   }
   
   self.BottomPipe = {
@@ -48,9 +50,12 @@ end
 
 
 function Pipe:draw()
-  love.graphics.setColor(Globals.Graphics.green)
-  love.graphics.rectangle("fill", self.TopPipe.x, self.TopPipe.y, self.TopPipe.width, self.TopPipe.height)
-  love.graphics.rectangle("fill", self.BottomPipe.x, self.BottomPipe.y, self.BottomPipe.width, self.BottomPipe.height)
+  love.graphics.setColor(Globals.Graphics.white)
+  love.graphics.draw(self.sprite1, self.TopPipe.x, self.TopPipe.y)
+  love.graphics.draw(self.sprite2, self.TopPipe.x, (self.TopPipe.y + self.TopPipe.height) - self.sprite2:getHeight())
+  
+  love.graphics.draw(self.sprite1, self.BottomPipe.x, self.BottomPipe.y)
+  love.graphics.draw(self.sprite2, self.BottomPipe.x, self.BottomPipe.y)
 end
 
 return Pipe
