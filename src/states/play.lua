@@ -44,8 +44,8 @@ end
 
 function Play.draw()
   bg:draw()
-  Globals.GameWorld:draw()
   pipe:draw()
+  Globals.GameWorld:draw()
   player:draw()
 end
 
