@@ -1,5 +1,6 @@
 local Menu = {}
 
+local bg = nil
 local playButton = nil
 local exitButton = nil
 local savedScore = nil
@@ -7,11 +8,8 @@ local savedScore = nil
 function Menu.onEnter()
   Menu.getScore()
   
-  Menu.BackGround = {
-      sprite = Globals.Graphics.Sprites.BG,
-      x = Globals.Screen.x,
-      y = Globals.Screen.y
-  }
+  Globals.BackGround = require("src/objs/background")
+  bg = Globals.BackGround.new()
   
   Menu.Title = {
       font = Globals.Graphics.Fonts.TitleFont,
@@ -69,8 +67,7 @@ end
 
 
 function Menu.draw()
-  love.graphics.setColor(Globals.Graphics.white)
-  love.graphics.draw(Menu.BackGround.sprite, Menu.BackGround.x, Menu.BackGround.y)
+  bg:draw()
   
   love.graphics.setColor(Globals.Graphics.black)
   love.graphics.setFont(Menu.Title.font)
@@ -87,10 +84,12 @@ end
 function Menu.onExit()
   playButton = nil
   exitButton = nil
+  bg = nil
   Menu.BackGround = {}
   Menu.Title = {}
   Menu.HiScore = {}
   Globals.Button = nil
+  Globals.BackGround = nil
 end
 
 return Menu

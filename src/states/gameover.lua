@@ -1,16 +1,14 @@
 local GameOver = {}
 
+local bg = nil
 local retryButton = nil
 local exitButton = nil
 
 function GameOver.onEnter()
   GameOver.checkScore(Globals.playerScore)
   
-  GameOver.BG = {
-      sprite = Globals.Graphics.Sprites.BG,
-      x = Globals.Screen.x,
-      y = Globals.Screen.y
-  }
+  Globals.BackGround = require("src/objs/background")
+  bg = Globals.BackGround.new()
   
   GameOver.Message = {
       font = Globals.Graphics.Fonts.HiScoreFont,
@@ -66,8 +64,7 @@ end
 
 
 function GameOver.draw()
-  love.graphics.setColor(Globals.Graphics.white)
-  love.graphics.draw(GameOver.BG.sprite, GameOver.BG.x, GameOver.BG.y)
+  bg:draw()
   
   love.graphics.setColor(Globals.Graphics.black)
   love.graphics.setFont(GameOver.Message.font)
@@ -87,6 +84,8 @@ function GameOver.onExit()
   Globals.Button = nil
   retryButton = nil
   exitButton = nil
+  bg = nil
+  Globals.BackGround = nil
   Globals.playerScore = 0
 end
 

@@ -1,9 +1,13 @@
 local Play = {}
 
+local bg = nil
 local player = nil
 local pipe = nil
 
 function Play.onEnter()
+  Globals.BackGround = require("src/objs/background")
+  bg = Globals.BackGround.new()
+  
   Globals.GameWorld = require("src/objs/gameworld")
   Globals.GameWorld:load()
   
@@ -39,6 +43,7 @@ end
 
 
 function Play.draw()
+  bg:draw()
   Globals.GameWorld:draw()
   pipe:draw()
   player:draw()
@@ -48,9 +53,11 @@ end
 function Play.onExit()
   player = nil
   pipe = nil
+  bg = nil
   Globals.GameWorld = nil
   Globals.Player = nil
   Globals.Pipe = nil
+  Globals.BackGround = nil
 end
 
 return Play

@@ -1,12 +1,6 @@
 local GameWorld = {}
 
 function GameWorld:load()
-  self.BG = {
-      sprite = Globals.Graphics.Sprites.BG,
-      x = Globals.Screen.x,
-      y = Globals.Screen.y
-  }
-  
   self.Ground = {
       sprite = Globals.Graphics.Sprites.ground,
       x = Globals.Screen.x,
@@ -30,7 +24,6 @@ end
 
 function GameWorld:draw()
   love.graphics.setColor(Globals.Graphics.white)
-  love.graphics.draw(self.BG.sprite, self.BG.x, self.BG.y)
   love.graphics.draw(self.Ground.sprite, self.Ground.x, self.Ground.y)
   
   love.graphics.setColor(Globals.Graphics.black)
