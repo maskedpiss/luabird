@@ -41,7 +41,7 @@ end
 
 
 function Menu.update(dt)
-  
+  bg:update(dt)
 end
 
 
