@@ -34,7 +34,7 @@ function Pipe:reset()
       x = self.TopPipe.x,
       y = self.MiddleGap.y + self.MiddleGap.height,
       width = 75,
-      height = Globals.Screen.height
+      height = self.sprite1:getHeight()
   }
 end
 
@@ -52,9 +52,11 @@ end
 function Pipe:draw()
   love.graphics.setColor(Globals.Graphics.white)
   love.graphics.draw(self.sprite1, self.TopPipe.x, self.TopPipe.y)
+  love.graphics.draw(self.sprite1, self.TopPipe.x, self.TopPipe.y - self.TopPipe.height)
   love.graphics.draw(self.sprite2, self.TopPipe.x, (self.TopPipe.y + self.TopPipe.height) - self.sprite2:getHeight())
   
   love.graphics.draw(self.sprite1, self.BottomPipe.x, self.BottomPipe.y)
+  love.graphics.draw(self.sprite1, self.BottomPipe.x, self.BottomPipe.y + self.BottomPipe.height)
   love.graphics.draw(self.sprite2, self.BottomPipe.x, self.BottomPipe.y)
 end
 
