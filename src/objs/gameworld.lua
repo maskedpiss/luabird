@@ -1,7 +1,12 @@
 local GameWorld = {}
 
 function GameWorld:load()
-  self.BG = Globals.Graphics.lightBlue
+  self.BG = {
+      sprite = Globals.Graphics.Sprites.BG,
+      x = Globals.Screen.x,
+      y = Globals.Screen.y
+  }
+  
   self.Ground = {
       x = Globals.Screen.x,
       y = Globals.Screen.height - 112,
@@ -23,7 +28,8 @@ end
 
 
 function GameWorld:draw()
-  love.graphics.setBackgroundColor(self.BG)
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.draw(self.BG.sprite, self.BG.x, self.BG.y)
   
   love.graphics.setColor(Globals.Graphics.lightGreen)
   love.graphics.rectangle("fill", self.Ground.x, self.Ground.y, self.Ground.width, self.Ground.height)

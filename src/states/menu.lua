@@ -87,6 +87,7 @@ end
 function Menu.onExit()
   playButton = nil
   exitButton = nil
+  Menu.BackGround = {}
   Menu.Title = {}
   Menu.HiScore = {}
   Globals.Button = nil
