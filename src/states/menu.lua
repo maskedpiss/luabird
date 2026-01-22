@@ -61,7 +61,7 @@ function Menu.mousereleased(x, y, button)
     return
   end
   
-  if exitButton:mousepressed(x, y, button) then
+  if exitButton:mousereleased(x, y, button) then
     return
   end
 end
