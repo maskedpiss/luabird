@@ -2,11 +2,13 @@ local Button = {}
 
 Button.offset = 50
 
-function Button.new(sprite, x, y, callback)
+function Button.new(sprite, pressedSprite, x, y, callback)
   local instance = {}
   setmetatable(instance, { __index = Button })
   
   instance.sprite = sprite
+  instance.pressedSprite = pressedSprite
+  instance.currentSprite = instance.sprite
   instance.x = x
   instance.y = y
   instance.callback = callback or function() end
@@ -30,6 +32,16 @@ end
 
 function Button:mousepressed(x, y, button)
   if button == 1 and self:isHovering(x, y) then
+    self.currentSprite = self.pressedSprite
+    return true
+  end
+  return false
+end
+
+
+function Button:mousereleased(x, y, button)
+  if button == 1 and self:isHovering(x, y) then
+    self.currentSprite = self.sprite
     self.callback()
     return true
   end
@@ -39,7 +51,7 @@ end
 
 function Button:draw()
   love.graphics.setColor(Globals.Graphics.white)
-  love.graphics.draw(self.sprite, self.x, self.y)
+  love.graphics.draw(self.currentSprite, self.x, self.y)
 end
 
 return Button

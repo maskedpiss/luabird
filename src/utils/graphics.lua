@@ -24,8 +24,11 @@ function Graphics:loadSprites()
       BG = love.graphics.newImage("res/sprites/BG.png"),
       ground = love.graphics.newImage("res/sprites/Ground.png"),
       playButton = love.graphics.newImage("res/sprites/PlayButton.png"),
+      playButtonPressed = love.graphics.newImage("res/sprites/PlayButtonPressed.png"),
       retryButton = love.graphics.newImage("res/sprites/RetryButton.png"),
+      retryButtonPressed = love.graphics.newImage("res/sprites/RetryButtonPressed.png"),
       exitButton = love.graphics.newImage("res/sprites/ExitButton.png"),
+      exitButtonPressed = love.graphics.newImage("res/sprites/ExitButtonPressed.png"),
       player = love.graphics.newImage("res/sprites/Player.png"),
       pipeShaft = love.graphics.newImage("res/sprites/PipeShaft.png"),
       pipeCap = love.graphics.newImage("res/sprites/PipeCap.png")
