@@ -29,18 +29,18 @@ function GameOver.onEnter()
   local exitBtnY = retryBtnY + 75
   
   Globals.Button = require("src/objs/button")
-  retryButton = Globals.Button.new(Globals.Graphics.Sprites.retryButton, retryBtnX - Globals.Button.offset, retryBtnY, function()
-      GameState:changeState("play")
-  end)
+  --retryButton = Globals.Button.new(Globals.Graphics.Sprites.retryButton, retryBtnX - Globals.Button.offset, retryBtnY, function()
+      --GameState:changeState("play")
+  --end)
 
-  exitButton = Globals.Button.new(Globals.Graphics.Sprites.exitButton, exitBtnX - Globals.Button.offset, exitBtnY, function()
-      love.event.quit()
-  end)
+  --exitButton = Globals.Button.new(Globals.Graphics.Sprites.exitButton, exitBtnX - Globals.Button.offset, exitBtnY, function()
+      --love.event.quit()
+  --end)
 end
 
 
 function GameOver.update(dt)
-  
+  bg:update(dt)
 end
 
 
@@ -73,8 +73,8 @@ function GameOver.draw()
   love.graphics.setFont(GameOver.Score.font)
   love.graphics.printf(Globals.playerScore, GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
-  retryButton:draw()
-  exitButton:draw()
+  --retryButton:draw()
+  --exitButton:draw()
 end
 
 
