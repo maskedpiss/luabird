@@ -1,12 +1,16 @@
 local Play = {}
 
 local bg = nil
+local ground = nil
 local player = nil
 local pipe = nil
 
 function Play.onEnter()
   Globals.BackGround = require("src/objs/background")
   bg = Globals.BackGround.new()
+  
+  Globals.Ground = require("src/objs/ground")
+  ground = Globals.Ground.new()
   
   Globals.GameWorld = require("src/objs/gameworld")
   Globals.GameWorld:load()
@@ -30,7 +34,7 @@ function Play.update(dt)
     Globals.hasScored = true
   end
   
-  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) or Globals.Collisions:AABB(player, Globals.GameWorld.Ground) then
+  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) or Globals.Collisions:AABB(player, ground) then
     GameState:changeState("gameOver")
   end
 end
@@ -46,6 +50,7 @@ end
 function Play.draw()
   bg:draw()
   pipe:draw()
+  ground:draw()
   Globals.GameWorld:draw()
   player:draw()
 end

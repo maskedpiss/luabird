@@ -1,6 +1,7 @@
 Globals = {}
 Globals.GameWorld = nil
 Globals.BackGround = nil
+Globals.Ground = nil
 Globals.Player = nil
 Globals.Pipe = nil
 Globals.playerScore = 0
