@@ -23,19 +23,23 @@ function GameOver.onEnter()
       y = 125
   }
   
+  local retrySprite = Globals.Graphics.Sprites.retryButton
+  local retryPressed = Globals.Graphics.Sprites.retryButtonPressed
   local retryBtnX = Globals.Screen.width / 2
   local retryBtnY = Globals.Screen.height / 2
+  local exitSprite = Globals.Graphics.Sprites.exitButton
+  local exitPressed = Globals.Graphics.Sprites.exitButtonPressed
   local exitBtnX = retryBtnX
   local exitBtnY = retryBtnY + 75
   
   Globals.Button = require("src/objs/button")
-  --retryButton = Globals.Button.new(Globals.Graphics.Sprites.retryButton, retryBtnX - Globals.Button.offset, retryBtnY, function()
-      --GameState:changeState("play")
-  --end)
+  retryButton = Globals.Button.new(retrySprite, retryPressed, retryBtnX - Globals.Button.offset, retryBtnY, function()
+      GameState:changeState("play")
+  end)
 
-  --exitButton = Globals.Button.new(Globals.Graphics.Sprites.exitButton, exitBtnX - Globals.Button.offset, exitBtnY, function()
-      --love.event.quit()
-  --end)
+  exitButton = Globals.Button.new(exitSprite, exitPressed, exitBtnX - Globals.Button.offset, exitBtnY, function()
+      love.event.quit()
+  end)
 end
 
 
@@ -50,6 +54,17 @@ function GameOver.mousepressed(x, y, button)
   end
   
   if exitButton:mousepressed(x, y, button) then
+    return
+  end
+end
+
+
+function GameOver.mousereleased(x, y, button)
+  if retryButton:mousereleased(x, y, button) then
+    return
+  end
+  
+  if exitButton:mousereleased(x, y, button) then
     return
   end
 end
@@ -73,8 +88,8 @@ function GameOver.draw()
   love.graphics.setFont(GameOver.Score.font)
   love.graphics.printf(Globals.playerScore, GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
-  --retryButton:draw()
-  --exitButton:draw()
+  retryButton:draw()
+  exitButton:draw()
 end
 
 
