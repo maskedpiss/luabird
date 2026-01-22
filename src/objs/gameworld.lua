@@ -8,6 +8,7 @@ function GameWorld:load()
   }
   
   self.Ground = {
+      sprite = Globals.Graphics.Sprites.ground,
       x = Globals.Screen.x,
       y = Globals.Screen.height - 112,
       width = Globals.Screen.width,
@@ -30,9 +31,7 @@ end
 function GameWorld:draw()
   love.graphics.setColor(Globals.Graphics.white)
   love.graphics.draw(self.BG.sprite, self.BG.x, self.BG.y)
-  
-  love.graphics.setColor(Globals.Graphics.lightGreen)
-  love.graphics.rectangle("fill", self.Ground.x, self.Ground.y, self.Ground.width, self.Ground.height)
+  love.graphics.draw(self.Ground.sprite, self.Ground.x, self.Ground.y)
   
   love.graphics.setColor(Globals.Graphics.black)
   love.graphics.setFont(self.ScoreBoard.font)
