@@ -28,7 +28,7 @@ end
 
 
 function GameWorld:draw()
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(Globals.Graphics.white)
   love.graphics.draw(self.BG.sprite, self.BG.x, self.BG.y)
   
   love.graphics.setColor(Globals.Graphics.lightGreen)

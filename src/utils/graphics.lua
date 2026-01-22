@@ -23,7 +23,8 @@ function Graphics:loadSprites()
   self.Sprites = {
       BG = love.graphics.newImage("res/sprites/BG.png"),
       playButton = love.graphics.newImage("res/sprites/PlayButton.png"),
-      exitButton = love.graphics.newImage("res/sprites/ExitButton.png")
+      exitButton = love.graphics.newImage("res/sprites/ExitButton.png"),
+      player = love.graphics.newImage("res/sprites/Player.png")
   }
 end
 

@@ -11,6 +11,7 @@ end
 
 
 function Player:reset()
+  self.sprite = Globals.Graphics.Sprites.player
   self.x = 75
   self.y = Globals.Screen.height / 2
   self.width = 20
@@ -34,8 +35,8 @@ end
 
 
 function Player:draw()
-  love.graphics.setColor(Globals.Graphics.yellow)
-  love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
+  love.graphics.setColor(Globals.Graphics.white)
+  love.graphics.draw(self.sprite, self.x, self.y)
 end
 
 return Player
