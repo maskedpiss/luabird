@@ -1,5 +1,4 @@
 Globals = {}
-Globals.GameWorld = nil
 Globals.BackGround = nil
 Globals.Ground = nil
 Globals.Player = nil

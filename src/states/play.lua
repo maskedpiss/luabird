@@ -4,6 +4,7 @@ local bg = nil
 local ground = nil
 local player = nil
 local pipe = nil
+local scoreBoard = nil
 
 function Play.onEnter()
   Globals.BackGround = require("src/objs/background")
@@ -12,8 +13,11 @@ function Play.onEnter()
   Globals.Ground = require("src/objs/ground")
   ground = Globals.Ground.new()
   
-  Globals.GameWorld = require("src/objs/gameworld")
-  Globals.GameWorld:load()
+  scoreBoard = {
+      font = Globals.Graphics.Fonts.TitleFont,
+      x = 0,
+      y = 50
+  }
   
   Globals.Player = require("src/objs/player")
   player = Globals.Player.new()
@@ -24,7 +28,6 @@ end
 
 
 function Play.update(dt)
-  Globals.GameWorld:update(dt)
   bg:update(dt)
   ground:update(dt)
   player:update(dt)
@@ -52,8 +55,11 @@ function Play.draw()
   bg:draw()
   pipe:draw()
   ground:draw()
-  Globals.GameWorld:draw()
   player:draw()
+  
+  love.graphics.setColor(Globals.Graphics.black)
+  love.graphics.setFont(scoreBoard.font)
+  love.graphics.printf(Globals.playerScore, scoreBoard.x, scoreBoard.y, Globals.Screen.width, "center")
 end
 
 
@@ -61,7 +67,6 @@ function Play.onExit()
   player = nil
   pipe = nil
   bg = nil
-  Globals.GameWorld = nil
   Globals.Player = nil
   Globals.Pipe = nil
   Globals.BackGround = nil
