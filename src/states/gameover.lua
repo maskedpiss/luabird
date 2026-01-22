@@ -6,6 +6,12 @@ local exitButton = nil
 function GameOver.onEnter()
   GameOver.checkScore(Globals.playerScore)
   
+  GameOver.BG = {
+      sprite = Globals.Graphics.Sprites.BG,
+      x = Globals.Screen.x,
+      y = Globals.Screen.y
+  }
+  
   GameOver.Message = {
       font = Globals.Graphics.Fonts.HiScoreFont,
       x = Globals.Screen.x,
@@ -25,13 +31,13 @@ function GameOver.onEnter()
   local exitBtnY = retryBtnY + 75
   
   Globals.Button = require("src/objs/button")
-  retryButton = Globals.Button.new("retry", retryBtnX - Globals.Button.offset, retryBtnY, function()
-      GameState:changeState("play")
-  end)
+  --retryButton = Globals.Button.new("retry", retryBtnX - Globals.Button.offset, retryBtnY, function()
+      --GameState:changeState("play")
+  --end)
 
-  exitButton = Globals.Button.new("exit", exitBtnX - Globals.Button.offset, exitBtnY, function()
-      love.event.quit()
-  end)
+  --exitButton = Globals.Button.new("exit", exitBtnX - Globals.Button.offset, exitBtnY, function()
+      --love.event.quit()
+  --end)
 end
 
 
@@ -60,6 +66,9 @@ end
 
 
 function GameOver.draw()
+  love.graphics.setColor(Globals.Graphics.white)
+  love.graphics.draw(GameOver.BG.sprite, GameOver.BG.x, GameOver.BG.y)
+  
   love.graphics.setColor(Globals.Graphics.black)
   love.graphics.setFont(GameOver.Message.font)
   love.graphics.printf(GameOver.Message.text, GameOver.Message.x, GameOver.Message.y, Globals.Screen.width, "center")
@@ -67,8 +76,8 @@ function GameOver.draw()
   love.graphics.setFont(GameOver.Score.font)
   love.graphics.printf(Globals.playerScore, GameOver.Score.x, GameOver.Score.y, Globals.Screen.width, "center")
   
-  retryButton:draw()
-  exitButton:draw()
+  --retryButton:draw()
+  --exitButton:draw()
 end
 
 
