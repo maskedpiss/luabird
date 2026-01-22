@@ -39,8 +39,8 @@ end
 
 
 function Play.draw()
-  pipe:draw()
   Globals.GameWorld:draw()
+  pipe:draw()
   player:draw()
 end
 
