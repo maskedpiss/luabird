@@ -35,6 +35,7 @@ function Play.update(dt)
   
   if player.x > pipe.TopPipe.x + pipe.TopPipe.width and Globals.hasScored == false then
     Globals.playerScore = Globals.playerScore + 1
+    Globals.Sound:playSound(Globals.Sound.goal)
     Globals.hasScored = true
   end
   
