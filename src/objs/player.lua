@@ -30,6 +30,7 @@ end
 function Player:flap()
   if self.y > Globals.Screen.y then
     self.yVel = -250
+    Globals.Sound:playSound(Globals.Sound.flap)
   end
 end
 
