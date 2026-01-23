@@ -33,6 +33,7 @@ end
 function Button:mousepressed(x, y, button)
   if button == 1 and self:isHovering(x, y) then
     self.currentSprite = self.pressedSprite
+    Globals.Sound:playSound(Globals.Sound.buttonPressed)
     return true
   end
   return false

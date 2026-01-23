@@ -4,4 +4,9 @@ function Sound:loadSFX()
   self.buttonPressed = love.audio.newSource("res/sound/ButtonPress.wav", "static")
 end
 
+
+function Sound:playSound(sound)
+  love.audio.play(sound)
+end
+
 return Sound
