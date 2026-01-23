@@ -40,10 +40,12 @@ function Play.update(dt)
   end
   
   if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) then
+    Globals.Sound:playSound(Globals.Sound.thud)
     GameState:changeState("gameOver")
   end
   
   if player and player.y + player.height > Globals.Screen.height - ground.height then
+    Globals.Sound:playSound(Globals.Sound.thud)
     GameState:changeState("gameOver")
   end
 end
