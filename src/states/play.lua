@@ -42,7 +42,7 @@ function Play.update(dt)
     GameState:changeState("gameOver")
   end
   
-  if player.y + player.height > Globals.Screen.height - ground.height then
+  if player and player.y + player.height > Globals.Screen.height - ground.height then
     GameState:changeState("gameOver")
   end
 end
