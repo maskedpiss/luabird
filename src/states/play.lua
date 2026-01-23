@@ -38,7 +38,11 @@ function Play.update(dt)
     Globals.hasScored = true
   end
   
-  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) or Globals.Collisions:AABB(player, ground) then
+  if Globals.Collisions:AABB(player, pipe.TopPipe) or Globals.Collisions:AABB(player, pipe.BottomPipe) then
+    GameState:changeState("gameOver")
+  end
+  
+  if player.y + player.height > Globals.Screen.height - ground.height then
     GameState:changeState("gameOver")
   end
 end
